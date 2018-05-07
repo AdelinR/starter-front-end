@@ -1,4 +1,7 @@
-# StarterFrontEnd GULP/SASS/TWIG/BABELIFY
+# StarterFrontEnd GULP/SASS/TWIG/BABELIFY - Install bulma
+
+Modification du repository StarterFrontEnd de matteo peronnet avec l'ajout simplifié de bulma
+
 Voici les étapes à suivre pour procéder a l'installation et le développement du projet.
 ## Installation
 Voici les différents logiciels à installer pour faire fonctionner l'application.
@@ -22,7 +25,7 @@ $ npm install gulp -g
 **Si vous êtes sur Mac, vous aurez sans doute besoin de faire précéder cette syntaxe d'un sudo afin de disposer des droits suffisants, ce qui donnera:  `sudo npm install gulp -g`**
 
 ### Configuration de Git
-Une des premières choses a faire, c'est de paramétrer Git avec votre nom et votre adresse e-mail : 
+Une des premières choses a faire, c'est de paramétrer Git avec votre nom et votre adresse e-mail :
 ```sh
 $ git config --global user.name "Prénom Nom"
 $ git config --global user.email "exemple@exemple.fr"
@@ -87,9 +90,9 @@ Vous pouvez accéder au site depuis cette url.
 ### Architecture
 Pour la partie Intégration, comme je l'ai dis précédemment nous utilisons **SASS**, c'est un préprocesseur CSS qui permet de générer dynamiquement des fichiers CSS. L’objectif est d’améliorer l’écriture de ces fichiers, en apportant plus de flexibilité au développeur web. [Voir toutes les fonctionnalités de SASS]
 
-Le développement du CSS s’effectue depuis les différents fichiers comportant l'extension **.scss** que vous trouverez dans le dossier SCSS. Voici l'arborescence générale. 
+Le développement du CSS s’effectue depuis les différents fichiers comportant l'extension **.scss** que vous trouverez dans le dossier SCSS. Voici l'arborescence générale.
 ```tree
-    └── scss 
+    └── scss
         ├── components // Ce Dossier contient la mise en forme des composants du site
         │   ├── _buttons.scss
         │   ├── _forms.scss
@@ -115,7 +118,7 @@ Le fichier style.scss importe tous les autres fichiers, donc à chaque création
 
 ### Création
 Pour chacune des pages, il faut créer son fichier SASS correspondant, dans le dossier pages du dossier Layout.
-Exemple : 
+Exemple :
 *   `"_contact.scss"`
 *   `"_equipe.scss"`
 
@@ -125,7 +128,7 @@ Exemple :
 ## Moteur de Template TWIG
 
 ### Introduction
-Nous allons utiliser un moteur de template PHP en l’occurence, j'ai choisi TWIG. Il va nous aider dans la lisibilité et la logique du projet en général, de son code en particulier. 
+Nous allons utiliser un moteur de template PHP en l’occurence, j'ai choisi TWIG. Il va nous aider dans la lisibilité et la logique du projet en général, de son code en particulier.
 
 > Avant, on écrivait du `HTML` dans nos pages `.html`, jusqu'à la tout va bien. Le principal soucis, était que lorsque nous avions des éléments communs a toutes nos pages il fallait le répéter à chaques fois, et pour chaques modifications il fallait également le modifier sur toutes ces pages.
 `**TWIG EST LA SOLUTION**`
@@ -139,7 +142,7 @@ Nous allons pouvoir séparer nos codes `HTML` dans des fichiers `.twig`. Certain
     ├── fonts
     ├── img
     ├── js
-    └── twig // Ce dossier contient toutes nos pages html 
+    └── twig // Ce dossier contient toutes nos pages html
         ├── index.twig // Page D'acceuil
         └── template
             └── layout.twig // Conteneur Général
@@ -150,13 +153,13 @@ Nous allons pouvoir séparer nos codes `HTML` dans des fichiers `.twig`. Certain
 
 > Les fichiers Twig comporte l'extension `.twig` ils sont situés dans le dossier `src/twig`
 
-Comme vous pouvez le voir nous avons un premier fichier nommé `index.twig`, c'est nôtre page d'acceuil. 
+Comme vous pouvez le voir nous avons un premier fichier nommé `index.twig`, c'est nôtre page d'acceuil.
 
-Éxaminons le code de ce fichier : 
+Éxaminons le code de ce fichier :
 ```twig
 # Fichier : index.twig
 {% extends "template/layout.twig" %}
- 
+
 {% block page %}
     <p>Je suis le Texte de la Page</p>
 {% endblock %}
@@ -164,7 +167,7 @@ Comme vous pouvez le voir nous avons un premier fichier nommé `index.twig`, c'e
 
 > Ce fichier étend une page via la commande "extends" et lui injecte des données via la commande "block".
 
-Voici à quoi correspond le fichier auquel nous étendons : 
+Voici à quoi correspond le fichier auquel nous étendons :
 
 ```twig
 # Fichier : layout.twig
@@ -174,7 +177,7 @@ Voici à quoi correspond le fichier auquel nous étendons :
     <meta charset="utf-8"/>
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <title>Titre de la page</title>
- 
+
 </head>
 <body>
     {% block page %}{% endblock %}
@@ -184,7 +187,7 @@ Voici à quoi correspond le fichier auquel nous étendons :
 
 L'ensemble des données situé dans le bloc page du fichier `index.twig` ont été injecté dans le bloc page du fichier `template.twig`.
 
-> À chaques nouveau fichier nous allons rajouter cette ligne au début, cela va nous éviter de déclarer tout le `!DOCTYPE` l'entête `HEAD` à toutes nos pages etc .. 
+> À chaques nouveau fichier nous allons rajouter cette ligne au début, cela va nous éviter de déclarer tout le `!DOCTYPE` l'entête `HEAD` à toutes nos pages etc ..
 
 Dans le fichier `template.twig` on va même pouvoir y inclure le `header` et le `footer` ou même le `menu`, on va y mettre tous les éléments communs à chaques page. Voilà une des grandes utilitées que nous offres `TWIG`.
 
@@ -232,7 +235,7 @@ Dans le StarterPack, j'ai fais un éxemple en utilisant `Jquery`.
 ```sh
 $ npm install jquery
 ```
-> J'ai au préalable éffectuer cette commande qui a permi d'installer le plugin `Jquery` dans le dossier `node_modules`. 
+> J'ai au préalable éffectuer cette commande qui a permi d'installer le plugin `Jquery` dans le dossier `node_modules`.
 
 ```javascript
 # Fichier : src/js/app.js

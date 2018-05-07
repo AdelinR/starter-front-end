@@ -186,7 +186,7 @@ gulp.task('twig-build', function(){
   return gulp.src(config.twigin)
     .pipe(twig({
               data: {
-                  
+
               },
       }))
       .pipe(gulp.dest(config.dist));
